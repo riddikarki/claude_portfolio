@@ -1,0 +1,24 @@
+# systemd unit for the Nepal Portfolio Claude agent server.
+# Install (as your VM user, after setup_vm.sh):
+#   sudo cp deploy/portfolio-claude.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now portfolio-claude
+# Logs:  journalctl -u portfolio-claude -f
+
+[Unit]
+Description=Nepal Portfolio Claude agents
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# setup_vm.sh replaces __USER__ with your VM username automatically.
+User=__USER__
+WorkingDirectory=/home/__USER__/claude_portfolio
+ExecStart=/home/__USER__/claude_portfolio/.venv/bin/uvicorn server:app --host 0.0.0.0 --port 8080
+Restart=on-failure
+RestartSec=5
+# .env is loaded by the app itself (python-dotenv), from WorkingDirectory.
+
+[Install]
+WantedBy=multi-user.target

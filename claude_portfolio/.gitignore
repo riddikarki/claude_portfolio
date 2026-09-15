@@ -1,0 +1,13 @@
+# Secrets — never commit these
+.env
+token.json
+credentials.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS noise
+.DS_Store
+Thumbs.db
