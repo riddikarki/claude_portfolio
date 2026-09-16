@@ -283,13 +283,14 @@
     <div class="panel-head"><span class="label">Comms channel</span><span class="rule"></span><span class="label" id="turns">0 turns</span></div>
     <div id="log" aria-live="polite">
       <div id="welcome">
-        <span class="label">// CEO agent online · 7 specialists on standby</span>
+        <span class="label">// CEO agent online · 8 specialists on standby</span>
         <h2>Brief the <em>CEO</em>. It routes the work to the right specialists.</h2>
-        <p>Deal &amp; Partnership, Landed Cost, Trade Compliance, Finance &amp; Capital, Market &amp; Demand, Correspondence and Meeting Prep work from the Drive knowledge base. Nothing is sent or deleted without you.</p>
+        <p>Deal &amp; Partnership, Landed Cost, Trade Compliance, Finance &amp; Capital, Market &amp; Demand, Correspondence, Meeting Prep and Business Plan work from the Drive knowledge base. Nothing is sent or deleted without you.</p>
         <div class="suggest">
           <button type="button" data-q="Give me a status briefing across the portfolio from the 20_LIVE files."><b>Briefing</b>Status briefing across the portfolio</button>
           <button type="button" data-q="Work out the landed cost in Rs for a container shipment from India, showing the INR conversion at 1.60 and 13% VAT. Flag any data gaps."><b>Landed cost</b>Landed cost for an India shipment</button>
           <button type="button" data-q="What's on my calendar this week, and what do I need to prepare for each meeting?"><b>Meeting prep</b>This week's meetings and prep</button>
+          <button type="button" data-q="Review the Living Business Plan for Bumtum/Freeme against the 20_LIVE files and list every section that is now out of date, with the owner who should fix it."><b>Business plan</b>What in the plan is out of date</button>
           <button type="button" data-q="Check my recent emails and draft replies to anything that needs one. Drafts only."><b>Correspondence</b>Triage inbox, draft replies</button>
         </div>
       </div>
@@ -390,11 +391,12 @@
     ['finance_capital','Finance','Capital','FIN'],
     ['market_demand','Market','Demand','MKT'],
     ['correspondence','Corres-','pondence','COR'],
-    ['meeting_prep','Meeting','Prep','MTG']
+    ['meeting_prep','Meeting','Prep','MTG'],
+    ['business_planner','Business','Plan','BPL']
   ];
   var LABELS={ceo:'CEO',deal_partnership:'Deal & Partnership',landed_cost:'Landed Cost',
     trade_compliance:'Trade Compliance',finance_capital:'Finance & Capital',
-    market_demand:'Market & Demand',correspondence:'Correspondence',meeting_prep:'Meeting Prep'};
+    market_demand:'Market & Demand',correspondence:'Correspondence',meeting_prep:'Meeting Prep',business_planner:'Business Plan'};
   var CX=220, CY=220, R=152;
   var nodes={}, edges={}, pos={ceo:[CX,CY]};
   function el(t,attrs,parent){var e=document.createElementNS(NS,t);
@@ -517,7 +519,7 @@
     c.classList.add('hot','used');
     clearTimeout(chipTimers[g]);
     chipTimers[g]=setTimeout(function(){c.classList.remove('hot');},2600);
-    spawn(src,src==='ceo'?SPECIALISTS[Math.floor(Math.random()*7)][0]:'ceo','tool',650);
+    spawn(src,src==='ceo'?SPECIALISTS[Math.floor(Math.random()*SPECIALISTS.length)][0]:'ceo','tool',650);
   }
   function resetNet(){
     Object.keys(nodes).forEach(function(n){markState(n,null,'');});
