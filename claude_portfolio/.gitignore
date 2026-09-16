@@ -11,3 +11,6 @@ __pycache__/
 # OS noise
 .DS_Store
 Thumbs.db
+
+# Runtime state on the VM (proposals, approved agents, board minutes)
+state/
