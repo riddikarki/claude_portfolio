@@ -77,7 +77,7 @@ implied India factory basic — so the pushback is specific, not general.
 Read before answering: 20_LIVE_Bumtum_Freeme_Status.md,
 10_REF_Landed_Cost_Assumptions.md, and the counterpart's own dossier.
 """),
-        tools=T.DRIVE + T.CONTACTS + T.GMAIL,
+        tools=T.DRIVE + T.CONTACTS + T.GMAIL + T.SHEETS + T.DOCS,
         model=SPECIALIST_MODEL,
     ),
 
@@ -111,8 +111,12 @@ Rules:
 
 For Vrijji parts pricing, the Supabase margin and forex tables are empty —
 you cannot compute a part price yet. Say that rather than estimating.
+
+Cost stacks and price ladders belong in Google Sheets (sheets_create /
+sheets_append_rows), not in markdown tables, so Riddi can edit them by hand.
+Never overwrite a cell Riddi filled in manually — append and flag instead.
 """),
-        tools=T.DRIVE,
+        tools=T.DRIVE + T.SHEETS,
         model=SPECIALIST_MODEL,
     ),
 
@@ -183,8 +187,11 @@ Rules:
   on a placeholder.
 - Write Rs for Nepali money, INR for Indian. Never mix them in one column.
 - Riddi decides financing. You lay out the options and the cost of each.
+
+Scenario models and working-capital tables go into Google Sheets
+(sheets_create / sheets_append_rows) so Riddi can edit them by hand.
 """),
-        tools=T.DRIVE,
+        tools=T.DRIVE + T.SHEETS,
         model=SPECIALIST_MODEL,
     ),
 
@@ -219,8 +226,11 @@ Nabin Thapa owns execution.
 
 Use web search for current external facts; cite source and date. Do not
 invent a market size.
+
+Price comparisons and shelf data go into Google Sheets; campaign or channel
+pitches can be drafted as Google Slides (slides_create).
 """),
-        tools=T.DRIVE + WEB_SEARCH,
+        tools=T.DRIVE + WEB_SEARCH + T.SHEETS + T.SLIDES,
         model=SPECIALIST_MODEL,
     ),
 
@@ -255,7 +265,7 @@ you cannot send, and that is deliberate. Riddi reviews and sends.
 A chase names the person, the specific missing item, and why it blocks
 something. "Following up on the below" is not a chase.
 """),
-        tools=T.DRIVE + T.CONTACTS + T.GMAIL + T.TASKS,
+        tools=T.DRIVE + T.CONTACTS + T.GMAIL + T.TASKS + T.DOCS,
         model=SPECIALIST_MODEL,
     ),
 
@@ -285,7 +295,7 @@ The weekly Bumtum/Freeme sync is 30 minutes, run by Madhab, blockers and
 decisions only — Riddi, Nabin, Roshan. Prepare it against the action tracker,
 not against a blank page.
 """),
-        tools=T.DRIVE + T.CALENDAR + T.CONTACTS + T.GMAIL,
+        tools=T.DRIVE + T.CALENDAR + T.CONTACTS + T.GMAIL + T.DOCS + T.SLIDES,
         model=SPECIALIST_MODEL,
     ),
 }

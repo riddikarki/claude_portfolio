@@ -25,6 +25,7 @@ from gtools.google_tools import (
     GMAIL_TOOLS,
     TASK_TOOLS,
 )
+from gtools.workspace_tools import DOCS_TOOLS, SHEETS_TOOLS, SLIDES_TOOLS
 
 _TYPE_MAP = {
     "int": "integer",
@@ -79,6 +80,9 @@ _ALL_FUNCTIONS = (
     + list(TASK_TOOLS)
     + list(CONTACT_TOOLS)
     + list(GMAIL_TOOLS)
+    + list(SHEETS_TOOLS)
+    + list(DOCS_TOOLS)
+    + list(SLIDES_TOOLS)
 )
 
 GTOOLS_SERVER = create_sdk_mcp_server(
@@ -98,4 +102,7 @@ CALENDAR = _names(CALENDAR_TOOLS)
 TASKS = _names(TASK_TOOLS)
 CONTACTS = _names(CONTACT_TOOLS)
 GMAIL = _names(GMAIL_TOOLS)
+SHEETS = _names(SHEETS_TOOLS)
+DOCS = _names(DOCS_TOOLS)
+SLIDES = _names(SLIDES_TOOLS)
 ALL_GTOOLS = _names(_ALL_FUNCTIONS)

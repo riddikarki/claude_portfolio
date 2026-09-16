@@ -48,6 +48,12 @@ if enabled("CALENDAR"):
     SCOPES += ["https://www.googleapis.com/auth/calendar.events"]
 if enabled("TASKS"):
     SCOPES += ["https://www.googleapis.com/auth/tasks"]
+if enabled("SHEETS"):
+    SCOPES += ["https://www.googleapis.com/auth/spreadsheets"]
+if enabled("DOCS"):
+    SCOPES += ["https://www.googleapis.com/auth/documents"]
+if enabled("SLIDES"):
+    SCOPES += ["https://www.googleapis.com/auth/presentations"]
 
 # Contacts needs no scope: they are read from contacts_merged_clean.csv in Drive.
 
